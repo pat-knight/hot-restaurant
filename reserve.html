@@ -9,7 +9,8 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css"
+          rel="stylesheet">
     <title>Hot Restaurant</title>
 </head>
 <body>
@@ -18,7 +19,8 @@
             <h1><i class="fas fa-fire pr-3"></i>Hot Restaurant</h1>
             <hr>
             <h4>Make your reservation</h4>
-            <button class="btn btn-primary mt-3">View Tables <i class="fas fa-table pl-2"></i></button>
+            <button class="btn btn-primary mt-3">View Tables <i
+                    class="fas fa-table pl-2"></i></button>
         </div>
 
         <div class="row">
@@ -26,7 +28,7 @@
                 <div class="card">
                     <h5 class="card-header">Table Reserve</h5>
                     <div class="card-body">
-                        <form>
+                        <form id="reserve-form">
                             <div class="form-group">
                                 <label for="reserve-name">
                                     Name</label>
@@ -52,7 +54,8 @@
                                        class="form-control"/>
                             </div>
                             <button type="submit"
-                                    class="btn btn-primary submit" id="submit-reserve">Submit
+                                    class="btn btn-primary submit"
+                                    id="submit-reserve">Submit
                             </button>
                         </form>
                     </div>
@@ -76,14 +79,16 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#submit-reserve").on("click", function (e) {
                 e.preventDefault();
                 $.ajax({
                     url: "/reserve",
-                    method: "POST"
-                }).success(function(response) {
+                    method: "POST",
+                    data: $('#reserve-form').serialize()
+                }).done(function (response) {
                     console.log('Submitted successfully');
+
                 });
             });
         });
