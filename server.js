@@ -1,4 +1,3 @@
-
 const express = require("express");
 const app = express();
 const PORT = 3000;
@@ -26,7 +25,14 @@ app.get('/tables', (req, res) => {
     res.sendFile(path.join(__dirname, 'tables.html'));
 });
 
-app.post('/reserve', (req, res) => {
+app.get('/api/tables', (req, res) => {
+    res.send({
+        tables: tables,
+        waitlist: waitlist    
+    });
+});
+
+app.post('/api/reserve', (req, res) => {
     if (tables.length < 6) {
         tables.push(req.body);
         res.send('Table succesfully booked');
@@ -34,7 +40,8 @@ app.post('/reserve', (req, res) => {
         waitlist.push(req.body);
         res.send('No tables. You have been added to the waitlist');
     }
-})
+    res.send(res.body);
+});
 
 app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
