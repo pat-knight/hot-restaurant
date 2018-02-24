@@ -52,7 +52,7 @@
                                        class="form-control"/>
                             </div>
                             <button type="submit"
-                                    class="btn btn-primary submit">Submit
+                                    class="btn btn-primary submit" id="submit-reserve">Submit
                             </button>
                         </form>
                     </div>
@@ -75,5 +75,18 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#submit-reserve").on("click", function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "/reserve",
+                    method: "POST"
+                }).success(function(response) {
+                    console.log('Submitted successfully');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
