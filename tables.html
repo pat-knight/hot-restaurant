@@ -62,13 +62,35 @@
                 </div>
             </div>
 
-            <div class='row'>
-            </div>
-
         </div>
 
         <!-- Script -->
-        <script src='app.js'></script>
+        <script>
+            $.ajax({
+                url: '/api/tables',
+                method: "GET"
+            })
+            .done(function(res) {
+                function fillTable(res) {
+                    if (reservations.length < 5) {
+                        //add reservation
+                        let newWell = $('<div>').addClass('well');
+                        let id = res.id;
+                        newWell.append(id);
+                        $('#reservation-panel').append(newWell);
+                        alert('Your table is booked.');
+
+                    } else {
+                        //add to waitlist
+                        let newWell = $('<div>').addClass('well');
+                        let id = res.id;
+                        newWell.append(id);
+                        $('#waiting-panel').append(newWell);
+                        alert('No reservations, you have been added to the waitlist.')
+                    }
+                }
+            });
+        </script>
 
     </body>
 </html>
