@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang='en-us'>
+
+    <head>
+
+        <meta charset='UTF-8'>
+        <title>CoderBay</title>
+
+        <!-- jQuery -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+        <!-- Bootstrap CDN-->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+        <!-- Firebase Reference -->
+        <script src='https://www.gstatic.com/firebasejs/live/3.0/firebase.js'></script>
+
+    </head>
+
+    <body>
+
+        <div class='container'>
+            <div class='jumbotron text-center'>
+                <h1>
+                    <span class="glyphicon glyphicon-fire"></span>
+                    Hot Restaurant
+                </h1>
+                <h2>
+                    Current Reservations and Waiting List
+                </h2>
+                <button type="button" class="btn btn-lg btn-danger">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    Make Reservation
+                </button>
+                <button type="button" class="btn btn-lg btn-secondary btn-outline-secondary">
+                    <span class="glyphicon glyphicon-home"></span>
+
+                </button>
+            </div>
+
+            <div class='row'>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Current Reservations</div>
+                    <div class="panel-body" id="reservation-panel">
+                        <div class="well">
+                            <span class="label label-primary">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class='row'>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Waiting List</div>
+                    <div class="panel-body" id="waiting-panel">
+                        <div class="well">
+                            <span class="label label-primary">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='row'>
+            </div>
+
+        </div>
+
+        <!-- Script -->
+        <script src='app.js'></script>
+
+    </body>
+</html>
